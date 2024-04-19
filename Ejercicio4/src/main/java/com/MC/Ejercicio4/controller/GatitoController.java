@@ -1,15 +1,19 @@
 package com.MC.Ejercicio4.controller;
 
 import com.MC.Ejercicio4.entity.Gatito;
-
+import com.MC.Ejercicio4.services.GatitoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@SpringBootApplication
 public class GatitoController {
+
     @Autowired
-    GatitoService.GatitoService gatitoService;
+    GatitoService gatitoService;
 
     @GetMapping("/MiGato")
     public ResponseEntity<String> miGato() {
@@ -41,3 +45,5 @@ public class GatitoController {
         return ResponseEntity.ok(gatitoGuardado);
     }
 }
+
+

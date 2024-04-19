@@ -4,6 +4,5 @@
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/EjercicioRectangulo" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/EjercicioRectangulo/MiRepositorio2" vcs="Git" />
   </component>
 </project>

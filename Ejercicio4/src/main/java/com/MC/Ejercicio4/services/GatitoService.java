@@ -10,8 +10,6 @@ import java.util.List;
 
 @Service
 public class GatitoService {
-    public class GatitoService {
-
         @Autowired
         GatitoRepository gatitoRepository;
 
@@ -46,5 +44,5 @@ public class GatitoService {
             }
             return gatito;
         }
-    }
+
 }
