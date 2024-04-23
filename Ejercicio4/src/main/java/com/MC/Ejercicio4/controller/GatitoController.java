@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
-@SpringBootApplication
 public class GatitoController {
 
     @Autowired
@@ -45,5 +44,3 @@ public class GatitoController {
         return ResponseEntity.ok(gatitoGuardado);
     }
 }
-
-

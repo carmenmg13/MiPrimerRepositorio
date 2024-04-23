@@ -10,39 +10,35 @@ import java.util.List;
 
 @Service
 public class GatitoService {
-        @Autowired
-        GatitoRepository gatitoRepository;
 
-        @Value("${frase.gatito}")
-        private String fraseDelGatito;
+    @Autowired
+    GatitoRepository gatitoRepository;
 
-        public String miGato() {
-            return fraseDelGatito;
+    @Value("${frase.gatito}")
+    private String fraseDelGatito;
+
+    public String miGato() {
+        return fraseDelGatito;
+    }
+    public List<Gatito> leerGatitos() {
+        return gatitoRepository.findAll();
+    }
+    public Gatito actualizarGatito(Gatito gatitoActualizado, Long id) {
+        Gatito gatito = gatitoRepository.findById(id).orElse(null);
+        if (gatito != null) {
+            gatito.setNombre(gatitoActualizado.getNombre());
+            gatitoRepository.save(gatito);
         }
-
-        public List<Gatito> leerGatitos() {
-            return gatitoRepository.findAll();
+        return gatito;
+    }
+    public Gatito guardarGatito(Gatito gatito) {
+        return gatitoRepository.save(gatito);
+    }
+    public Gatito eliminarGatito(Long id) {
+        Gatito gatito = gatitoRepository.findById(id).orElse(null);
+        if (gatito != null) {
+            gatitoRepository.deleteById(id);
         }
-
-        public Gatito actualizarGatito(Gatito gatitoActualizado, Long id) {
-            Gatito gatito = gatitoRepository.findById(id).orElse(null);
-            if (gatito != null) {
-                gatito.setNombre(gatitoActualizado.getNombre());
-                gatitoRepository.save(gatito);
-            }
-            return gatito;
-        }
-
-        public Gatito guardarGatito(Gatito gatito) {
-            return gatitoRepository.save(gatito);
-        }
-
-        public Gatito eliminarGatito(Long id) {
-            Gatito gatito = gatitoRepository.findById(id).orElse(null);
-            if (gatito != null) {
-                gatitoRepository.deleteById(id);
-            }
-            return gatito;
-        }
-
+        return gatito;
+    }
 }
